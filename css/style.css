@@ -830,8 +830,9 @@ footer {
     top: var(--nav-height);
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100vh - var(--nav-height));
     background: var(--bg);
+    z-index: 499;
     flex-direction: column;
     align-items: center;
     justify-content: center;
