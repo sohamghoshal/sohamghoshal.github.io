@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Music &mdash; Soham Ghoshal</title>
+  <meta name="description" content="Lo-fi hip hop music by Soham Ghoshal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">Soham Ghoshal</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="main-nav">
+      <a href="index.html">Photography</a>
+      <a href="podcast.html">Podcast</a>
+      <a href="music.html">Music</a>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="page-wrapper">
+
+      <div class="page-header">
+        <h1>Music</h1>
+        <p>Lo-fi hip hop, recorded and produced from scratch.</p>
+      </div>
+
+      <div class="music-content">
+
+        <!-- Bio + Gear -->
+        <div class="music-intro">
+          <div class="music-bio">
+            <p>
+              My pandemic obsession was learning how to compose, record, mix, and master my own
+              <span class="highlight">lo-fi hip hop</span> tracks from scratch &mdash; and I've been hooked ever since!
+            </p>
+            <p>
+              I play guitar and bass over self-produced beats, running everything through Ableton Live 12.
+              The goal is always the same: warm, textured sounds that feel lived-in.
+            </p>
+          </div>
+          <div class="music-gear">
+            <h2>Gear</h2>
+            <div class="gear-list">
+
+              <div class="gear-item">
+                <span class="gear-category">Guitar</span>
+                <span class="gear-name">Fender Telecaster</span>
+              </div>
+
+              <div class="gear-item">
+                <span class="gear-category">Bass</span>
+                <span class="gear-name">Jazzmaster</span>
+              </div>
+
+              <div class="gear-item">
+                <span class="gear-category">DAW</span>
+                <span class="gear-name">Ableton Live 12</span>
+              </div>
+
+              <div class="gear-item">
+                <span class="gear-category">Guitar Amp</span>
+                <span class="gear-name">Neural DSP Archetype: Tim Henson</span>
+              </div>
+
+              <div class="gear-item">
+                <span class="gear-category">Bass Amp</span>
+                <span class="gear-name">Ampeg SVT Suite Classic Series</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Listen -->
+        <div class="music-section">
+          <h2>Listen</h2>
+          <div class="embed-wrap">
+            <iframe
+              width="100%"
+              height="600"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2113685240%3Fsecret_token%3Ds-kcYyfJGDLfC&color=%2390a0a6&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"
+              title="SoundCloud — Soham Ghoshal"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Gear Photos -->
+        <div class="music-section">
+          <h2>Studio</h2>
+          <div class="music-photo-grid" id="music-grid">
+            <div class="music-photo-item" data-index="0">
+              <img src="images/opt/music/01.jpg" alt="Studio photo 1" class="music-photo" loading="lazy" />
+            </div>
+            <div class="music-photo-item" data-index="1">
+              <img src="images/opt/music/02.jpg" alt="Studio photo 2" class="music-photo" loading="lazy" />
+            </div>
+            <div class="music-photo-item" data-index="2">
+              <img src="images/opt/music/03.jpg" alt="Studio photo 3" class="music-photo" loading="lazy" />
+            </div>
+            <div class="music-photo-item" data-index="3">
+              <img src="images/opt/music/05.jpg" alt="Studio photo 5" class="music-photo" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" aria-label="Previous">&#8249;</button>
+    <button class="lb-nav lb-next" aria-label="Next">&#8250;</button>
+    <div class="lightbox-inner">
+      <img class="lb-img" src="" alt="" />
+    </div>
+    <div class="lb-counter"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 Soham Ghoshal</span>
+    <a href="#" class="back-to-top">Back to Top</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.DS_Store
+.claude/
+Thumbs.db
+*.RAW
+*.raw
+*.ARW
+*.arw
+*.CR2
+*.cr2
+*.NEF
+*.nef
