@@ -116,18 +116,44 @@ document.querySelectorAll('.back-to-top').forEach(btn => {
 })();
 
 /* =============================================
-   CONTACT FORM — basic front-end handling
+   CONTACT FORM — Formspree AJAX submission
    ============================================= */
 (function () {
-  const form = document.getElementById('contact-form');
+  const form      = document.getElementById('contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  const submitBtn = document.getElementById('submit-btn');
+  const errorMsg  = document.getElementById('form-error');
+  const successEl = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const success = document.getElementById('form-success');
-    if (success) {
-      form.style.display = 'none';
-      success.style.display = 'block';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+    if (errorMsg) errorMsg.hidden = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.hidden = true;
+        if (successEl) successEl.hidden = false;
+      } else {
+        throw new Error('server error');
+      }
+    } catch (_) {
+      if (errorMsg) errorMsg.hidden = false;
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message →';
+      }
     }
   });
 })();
