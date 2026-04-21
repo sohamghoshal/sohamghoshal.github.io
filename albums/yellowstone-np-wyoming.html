@@ -7,10 +7,10 @@
   <meta name="description" content="Photos from Yellowstone NP, Wyoming by Soham Ghoshal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body>
+<body class="has-sidebar">
 
   <!-- HEADER -->
   <header>
@@ -30,7 +30,35 @@
   </header>
 
   <!-- MAIN -->
-  <main>
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">SG</span>
+      </div>
+
+      <h1 class="sidebar-heading">Soham Ghoshal</h1>
+      <p class="sidebar-sub">Photography</p>
+
+      <div class="sidebar-divider"></div>
+
+      <p class="sidebar-tagline">
+        Hobbyist photographer, musician, and podcaster &mdash; just here to share the things I make.
+      </p>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <a href="../index.html" class="active">Photography</a>
+        <a href="../podcast.html">Podcast</a>
+        <a href="../music.html">Music</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span class="copyright">All rights reserved.<br/>&copy; 2026 Soham Ghoshal.</span>
+      </div>
+    </aside>
+
+    <div class="site-content">
+      <main>
     <div class="page-wrapper">
 
       <div class="album-page-header">
@@ -68,6 +96,16 @@
     </div>
   </main>
 
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 Soham Ghoshal</span>
+    <a href="#" class="back-to-top">Back to Top</a>
+  </footer>
+    </div>
+  </div>
+
+
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
     <button class="lightbox-close" aria-label="Close">&times;</button>
@@ -78,12 +116,6 @@
     </div>
     <div class="lb-counter"></div>
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-copy">&copy; 2026 Soham Ghoshal</span>
-    <a href="#" class="back-to-top">Back to Top</a>
-  </footer>
 
   <script src="../js/main.js"></script>
 </body>

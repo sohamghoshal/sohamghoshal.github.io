@@ -7,10 +7,10 @@
   <meta name="description" content="Navigating Medical School — 100 episodes helping students at every stage." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="has-sidebar">
 
   <!-- HEADER -->
   <header>
@@ -29,7 +29,35 @@
   </header>
 
   <!-- MAIN -->
-  <main>
+  <div class="site-layout">
+    <aside class="site-sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">SG</span>
+      </div>
+
+      <h1 class="sidebar-heading">Soham Ghoshal</h1>
+      <p class="sidebar-sub">Podcast</p>
+
+      <div class="sidebar-divider"></div>
+
+      <p class="sidebar-tagline">
+        Hobbyist photographer, musician, and podcaster &mdash; just here to share the things I make.
+      </p>
+
+      <nav class="sidebar-nav" aria-label="Primary">
+        <a href="index.html">Photography</a>
+        <a href="podcast.html" class="active">Podcast</a>
+        <a href="music.html">Music</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <span class="copyright">All rights reserved.<br/>&copy; 2026 Soham Ghoshal.</span>
+      </div>
+    </aside>
+
+    <div class="site-content">
+      <main>
     <div class="page-wrapper">
 
       <div class="page-header">
@@ -114,7 +142,7 @@
               width="100%"
               style="border:none;height:480px;"
               scrolling="no"
-              src="https://www.podbean.com/player-v2/?i=q5rym-fb9686-pbblog-playlist&share=1&download=1&rtl=0&fonts=Verdana&skin=1b1b1b&font-color=auto&logo_link=episode_page&order=episodic&limit=10&filter=all&ss=a713390a017602015775e868a2cf26b0&btn-skin=60a0c8&size=480"
+              src="https://www.podbean.com/player-v2/?i=q5rym-fb9686-pbblog-playlist&share=1&download=1&rtl=0&fonts=Verdana&skin=f1ece3&font-color=1b1b1b&logo_link=episode_page&order=episodic&limit=10&filter=all&ss=a713390a017602015775e868a2cf26b0&btn-skin=1b1b1b&size=480"
               allowfullscreen=""
               sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms"
               title="Navigating Medical School podcast episodes"
@@ -149,11 +177,15 @@
     </div>
   </main>
 
+
   <!-- FOOTER -->
   <footer>
     <span class="footer-copy">&copy; 2026 Soham Ghoshal</span>
     <a href="#" class="back-to-top">Back to Top</a>
   </footer>
+    </div>
+  </div>
+
 
   <script src="js/main.js"></script>
 </body>

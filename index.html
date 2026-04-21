@@ -7,12 +7,12 @@
   <meta name="description" content="Hobbyist photographer, musician, and podcaster." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="home">
 
-  <!-- HEADER -->
+  <!-- HEADER (hidden on the homepage; kept in markup for consistency/JS) -->
   <header>
     <a href="index.html" class="logo">Soham Ghoshal</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -30,222 +30,215 @@
 
   <!-- MAIN -->
   <main>
-    <div class="page-wrapper">
+    <div class="home-layout">
 
-      <!-- INTRO -->
-      <div class="photo-intro">
-        <h1>Hi, I'm <span class="intro-name">Soham.</span></h1>
-        <p>Hobbyist photographer, musician, and podcaster &mdash; just here to share the things I make.</p>
-      </div>
-
-      <!-- FILM-STYLE GRID -->
-      <div class="gallery-section">
-
-        <div class="album-gallery" id="album-gallery">
-
-          <a href="albums/manila-philippines.html" class="album-card">
-            <img src="images/opt/covers/manila-philippines.jpg" alt="Manila, Philippines" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Manila, Philippines</span>
-              <span class="album-card-count">23 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/tokyo-japan.html" class="album-card">
-            <img src="images/opt/covers/tokyo-japan.jpg" alt="Tokyo, Japan" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Tokyo, Japan</span>
-              <span class="album-card-count">14 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/ciudad-de-mexico-mexico.html" class="album-card">
-            <img src="images/opt/covers/ciudad-de-mexico-mexico.jpg" alt="Ciudad de México, Mexico" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Ciudad de M&eacute;xico, Mexico</span>
-              <span class="album-card-count">19 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/kyoto-osaka-japan.html" class="album-card">
-            <img src="images/opt/covers/kyoto-osaka-japan.jpg" alt="Kyoto &amp; Osaka, Japan" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Kyoto &amp; Osaka, Japan</span>
-              <span class="album-card-count">20 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/paris-france.html" class="album-card">
-            <img src="images/opt/covers/paris-france.jpg" alt="Paris, France" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Paris, France</span>
-              <span class="album-card-count">18 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/amsterdam-netherlands.html" class="album-card">
-            <img src="images/opt/covers/amsterdam-netherlands.jpg" alt="Amsterdam, Netherlands" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Amsterdam, Netherlands</span>
-              <span class="album-card-count">18 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/new-delhi-india.html" class="album-card">
-            <img src="images/opt/covers/new-delhi-india.jpg" alt="New Delhi, India" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">New Delhi, India</span>
-              <span class="album-card-count">14 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/tokyo-pt-2-japan.html" class="album-card">
-            <img src="images/opt/covers/tokyo-pt-2-japan.jpg" alt="Tokyo Pt. 2, Japan" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Tokyo Pt. 2, Japan</span>
-              <span class="album-card-count">14 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/grand-teton-np-wyoming.html" class="album-card">
-            <img src="images/opt/covers/grand-teton-np-wyoming.jpg" alt="Grand Teton NP, Wyoming" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Grand Teton NP, Wyoming</span>
-              <span class="album-card-count">9 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/yosemite-california.html" class="album-card">
-            <img src="images/opt/covers/yosemite-california.jpg" alt="Yosemite NP, California" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Yosemite NP, California</span>
-              <span class="album-card-count">12 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/zion-np-utah.html" class="album-card">
-            <img src="images/opt/covers/zion-np-utah.jpg" alt="Zion NP, Utah" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Zion NP, Utah</span>
-              <span class="album-card-count">15 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/bryce-canyon-np-utah.html" class="album-card">
-            <img src="images/opt/covers/bryce-canyon-np-utah.jpg" alt="Bryce Canyon NP, Utah" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Bryce Canyon NP, Utah</span>
-              <span class="album-card-count">9 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/yellowstone-np-wyoming.html" class="album-card">
-            <img src="images/opt/covers/yellowstone-np-wyoming.jpg" alt="Yellowstone NP, Wyoming" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Yellowstone NP, Wyoming</span>
-              <span class="album-card-count">8 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/joshua-tree-np-california.html" class="album-card">
-            <img src="images/opt/covers/joshua-tree-np-california.jpg" alt="Joshua Tree NP, California" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Joshua Tree NP, California</span>
-              <span class="album-card-count">8 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/acadia-maine.html" class="album-card">
-            <img src="images/opt/covers/acadia-maine.jpg" alt="Acadia NP, Maine" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Acadia NP, Maine</span>
-              <span class="album-card-count">12 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/white-mountains-new-hampshire.html" class="album-card">
-            <img src="images/opt/covers/white-mountains-new-hampshire.jpg" alt="White Mountains, New Hampshire" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">White Mountains, New Hampshire</span>
-              <span class="album-card-count">8 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/san-diego-california.html" class="album-card">
-            <img src="images/opt/covers/san-diego-california.jpg" alt="San Diego, California" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">San Diego, California</span>
-              <span class="album-card-count">11 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/philadelphia-pennsylvania.html" class="album-card">
-            <img src="images/opt/covers/philadelphia-pennsylvania.jpg" alt="Philadelphia, Pennsylvania" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Philadelphia, Pennsylvania</span>
-              <span class="album-card-count">12 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/provincetown-cape-cod.html" class="album-card">
-            <img src="images/opt/covers/provincetown-cape-cod.jpg" alt="Provincetown, Cape Cod" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Provincetown, Cape Cod</span>
-              <span class="album-card-count">5 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/connecticut.html" class="album-card">
-            <img src="images/opt/covers/connecticut.jpg" alt="Connecticut" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Connecticut</span>
-              <span class="album-card-count">5 photos</span>
-            </div>
-          </a>
-
-          <a href="albums/portraits.html" class="album-card">
-            <img src="images/opt/covers/portraits.jpg" alt="Portraits" class="album-card-img" loading="lazy" />
-            <div class="album-card-overlay"></div>
-            <div class="album-card-info">
-              <span class="album-card-title">Portraits</span>
-              <span class="album-card-count">8 photos</span>
-            </div>
-          </a>
-
+      <!-- SIDEBAR -->
+      <aside class="home-sidebar">
+        <div class="sidebar-brand">
+          <span class="brand-mark">SG</span>
         </div>
-        <!-- /.album-gallery -->
+
+        <h1 class="sidebar-heading">Soham Ghoshal</h1>
+        <p class="sidebar-sub">Photography</p>
+
+        <div class="sidebar-divider"></div>
+
+        <p class="sidebar-tagline">
+          Hobbyist photographer, musician, and podcaster &mdash; just here to share the things I make.
+        </p>
+
+        <nav class="sidebar-nav" aria-label="Primary">
+          <a href="index.html" class="active">Photography</a>
+          <a href="podcast.html">Podcast</a>
+          <a href="music.html">Music</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="sidebar-foot">
+          <span class="copyright">All rights reserved.<br/>&copy; 2026 Soham Ghoshal.</span>
+        </div>
+      </aside>
+
+      <!-- HORIZONTAL GALLERY — one wide card per viewport, smooth scroll -->
+      <div class="home-gallery" id="home-gallery">
+
+        <a href="albums/manila-philippines.html" class="album-card">
+          <img src="images/opt/covers/manila-philippines.jpg" alt="Manila, Philippines" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Manila, Philippines</span>
+            <span class="album-card-count">23 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/tokyo-japan.html" class="album-card">
+          <img src="images/opt/covers/tokyo-japan.jpg" alt="Tokyo, Japan" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Tokyo, Japan</span>
+            <span class="album-card-count">14 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/ciudad-de-mexico-mexico.html" class="album-card">
+          <img src="images/opt/covers/ciudad-de-mexico-mexico.jpg" alt="Ciudad de México, Mexico" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Ciudad de M&eacute;xico, Mexico</span>
+            <span class="album-card-count">19 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/kyoto-osaka-japan.html" class="album-card">
+          <img src="images/opt/covers/kyoto-osaka-japan.jpg" alt="Kyoto &amp; Osaka, Japan" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Kyoto &amp; Osaka, Japan</span>
+            <span class="album-card-count">20 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/paris-france.html" class="album-card">
+          <img src="images/opt/covers/paris-france.jpg" alt="Paris, France" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Paris, France</span>
+            <span class="album-card-count">18 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/amsterdam-netherlands.html" class="album-card">
+          <img src="images/opt/covers/amsterdam-netherlands.jpg" alt="Amsterdam, Netherlands" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Amsterdam, Netherlands</span>
+            <span class="album-card-count">18 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/new-delhi-india.html" class="album-card">
+          <img src="images/opt/covers/new-delhi-india.jpg" alt="New Delhi, India" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">New Delhi, India</span>
+            <span class="album-card-count">14 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/tokyo-pt-2-japan.html" class="album-card">
+          <img src="images/opt/covers/tokyo-pt-2-japan.jpg" alt="Tokyo Pt. 2, Japan" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Tokyo Pt. 2, Japan</span>
+            <span class="album-card-count">14 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/grand-teton-np-wyoming.html" class="album-card">
+          <img src="images/opt/covers/grand-teton-np-wyoming.jpg" alt="Grand Teton NP, Wyoming" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Grand Teton NP, Wyoming</span>
+            <span class="album-card-count">9 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/yosemite-california.html" class="album-card">
+          <img src="images/opt/covers/yosemite-california.jpg" alt="Yosemite NP, California" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Yosemite NP, California</span>
+            <span class="album-card-count">12 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/zion-np-utah.html" class="album-card">
+          <img src="images/opt/covers/zion-np-utah.jpg" alt="Zion NP, Utah" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Zion NP, Utah</span>
+            <span class="album-card-count">15 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/bryce-canyon-np-utah.html" class="album-card">
+          <img src="images/opt/covers/bryce-canyon-np-utah.jpg" alt="Bryce Canyon NP, Utah" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Bryce Canyon NP, Utah</span>
+            <span class="album-card-count">9 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/yellowstone-np-wyoming.html" class="album-card">
+          <img src="images/opt/covers/yellowstone-np-wyoming.jpg" alt="Yellowstone NP, Wyoming" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Yellowstone NP, Wyoming</span>
+            <span class="album-card-count">8 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/joshua-tree-np-california.html" class="album-card">
+          <img src="images/opt/covers/joshua-tree-np-california.jpg" alt="Joshua Tree NP, California" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Joshua Tree NP, California</span>
+            <span class="album-card-count">8 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/acadia-maine.html" class="album-card">
+          <img src="images/opt/covers/acadia-maine.jpg" alt="Acadia NP, Maine" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Acadia NP, Maine</span>
+            <span class="album-card-count">12 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/white-mountains-new-hampshire.html" class="album-card">
+          <img src="images/opt/covers/white-mountains-new-hampshire.jpg" alt="White Mountains, New Hampshire" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">White Mountains, New Hampshire</span>
+            <span class="album-card-count">8 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/san-diego-california.html" class="album-card">
+          <img src="images/opt/covers/san-diego-california.jpg" alt="San Diego, California" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">San Diego, California</span>
+            <span class="album-card-count">11 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/philadelphia-pennsylvania.html" class="album-card">
+          <img src="images/opt/covers/philadelphia-pennsylvania.jpg" alt="Philadelphia, Pennsylvania" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Philadelphia, Pennsylvania</span>
+            <span class="album-card-count">12 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/provincetown-cape-cod.html" class="album-card">
+          <img src="images/opt/covers/provincetown-cape-cod.jpg" alt="Provincetown, Cape Cod" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Provincetown, Cape Cod</span>
+            <span class="album-card-count">5 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/connecticut.html" class="album-card">
+          <img src="images/opt/covers/connecticut.jpg" alt="Connecticut" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Connecticut</span>
+            <span class="album-card-count">5 photos</span>
+          </div>
+        </a>
+
+        <a href="albums/portraits.html" class="album-card">
+          <img src="images/opt/covers/portraits.jpg" alt="Portraits" class="album-card-img" loading="lazy" />
+          <div class="album-card-info">
+            <span class="album-card-title">Portraits</span>
+            <span class="album-card-count">8 photos</span>
+          </div>
+        </a>
 
       </div>
-      <!-- /.gallery-section -->
+      <!-- /.home-gallery -->
+
+      <div class="scroll-hint">
+        <span>Scroll</span><span class="arrow">&rarr;</span>
+      </div>
 
     </div>
   </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-copy">&copy; 2026 Soham Ghoshal</span>
-    <a href="#" class="back-to-top">Back to Top</a>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>

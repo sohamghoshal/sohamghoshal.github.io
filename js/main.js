@@ -3,9 +3,11 @@
    ============================================= */
 (function () {
   const path = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav a').forEach(link => {
+
+  // Inner-page top nav (header nav) and homepage sidebar nav both get the
+  // active class when their href matches the current page.
+  document.querySelectorAll('nav a, .sidebar-nav a').forEach(link => {
     const href = link.getAttribute('href');
-    // Handle album pages (inside albums/) — mark Photography as active
     const inAlbums = window.location.pathname.includes('/albums/');
     if (inAlbums && (href === '../index.html' || href === 'index.html')) {
       link.classList.add('active');
@@ -43,6 +45,67 @@
         bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; });
       });
     });
+  }
+})();
+
+/* =============================================
+   HOMEPAGE — wheel → horizontal, arrow-key nav
+   ============================================= */
+(function () {
+  const gallery = document.getElementById('home-gallery');
+  if (!gallery) return;
+
+  // Only intercept horizontal translation on coarse/pointer devices with a
+  // vertical wheel. Leave trackpads with native horizontal intent alone.
+  let isScrolling = false;
+
+  gallery.addEventListener('wheel', (e) => {
+    // If the user is already scrolling horizontally (trackpad swipe), let it through
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+    // Translate vertical wheel into horizontal scroll
+    e.preventDefault();
+    gallery.scrollLeft += e.deltaY;
+  }, { passive: false });
+
+  // Arrow-key navigation (only on homepage, only when no lightbox is open)
+  document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox && lightbox.classList.contains('active')) return;
+
+    const slides = gallery.querySelectorAll('.slide');
+    if (!slides.length) return;
+
+    const slideW = slides[0].getBoundingClientRect().width;
+
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+      e.preventDefault();
+      gallery.scrollBy({ left: slideW, behavior: 'smooth' });
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      gallery.scrollBy({ left: -slideW, behavior: 'smooth' });
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      gallery.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+    }
+  });
+
+  // Touch swipe is native via scroll-snap-type; no extra code needed.
+
+  // Hide scroll hint once the user has scrolled a bit
+  const hint = document.querySelector('.scroll-hint');
+  if (hint) {
+    gallery.addEventListener('scroll', () => {
+      if (gallery.scrollLeft > 50) {
+        hint.style.opacity = '0';
+        hint.style.transition = 'opacity 0.4s ease';
+      } else {
+        hint.style.opacity = '';
+      }
+    }, { passive: true });
   }
 })();
 
