@@ -1431,3 +1431,146 @@ footer {
     padding: 0.5rem 0.75rem;
   }
 }
+
+/* =============================================
+   ALL EPISODES (self-hosted list)
+   ============================================= */
+.episode-list--full {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: none !important;
+}
+
+.episode--full {
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: background 0.15s ease, border-color 0.15s ease;
+  scroll-margin-top: 1.5rem;
+}
+
+.episode--full:first-child { border-top: 1px solid var(--border); }
+.episode--full:hover { background: rgba(255, 255, 255, 0.6); border-color: var(--border-light); }
+.episode--full[open] {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--border-light);
+}
+
+.episode-summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.9rem 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.episode-summary::-webkit-details-marker { display: none; }
+
+.episode-summary::after {
+  content: "+";
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-left: 0.25rem;
+  transition: transform 0.15s ease;
+  grid-column: 3;
+}
+
+.episode--full[open] .episode-summary::after {
+  content: "−";
+  color: var(--text-primary);
+}
+
+.episode--full .episode-num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  grid-column: 1;
+}
+
+.episode--full .episode-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.45;
+  grid-column: 2;
+  /* Clamp long titles to one line, with ellipsis */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.episode--full .episode-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  grid-column: 4 / span 1;
+  grid-row: 1;
+  justify-self: end;
+  margin-right: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .episode-summary {
+    grid-template-columns: auto 1fr auto;
+  }
+  .episode--full .episode-title {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    white-space: normal;
+  }
+  .episode--full .episode-meta {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin-right: 0;
+    font-size: 0.75rem;
+  }
+}
+
+.episode-body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0;
+  padding-top: 1rem;
+}
+
+.episode-audio {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0.85rem;
+}
+
+.episode-notes-body {
+  color: var(--text-primary);
+  line-height: 1.75;
+  font-size: 0.92rem;
+}
+
+.episode-notes-body p {
+  margin: 0 0 0.75rem;
+}
+
+.episode-notes-body p:last-child { margin-bottom: 0; }
+
+.episode-notes-body a {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.episodes-placeholder {
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 1rem 0;
+}
+
