@@ -8,7 +8,7 @@ Working notes for this portfolio site. Read this first when making changes.
 - Two git remotes:
   - `origin` — `git@github.com:sohamghoshal/portfolio-code-log.git` (code log)
   - `pages`  — `git@github.com:sohamghoshal/sohamghoshal.github.io.git` (live site, GitHub Pages, 1 GB hard limit)
-- Push from the Mac (`git push origin main && git push pages main`). The Cowork sandbox has no SSH key for GitHub, so pushes from here fail with "Host key verification failed" — commit locally and tell the user to push.
+- **Commit and push both happen on the Mac.** The Cowork sandbox can't write into `.git/` (FUSE mount is read-only there) — `git commit` fails with "Operation not permitted" and leaves a stale `.git/index.lock`. The sandbox also has no SSH key for GitHub, so pushes would fail anyway. Workflow from the sandbox: do the file work, validate, then hand the user a `git add` / `git commit` / `git push` block to run on the Mac. If a previous session left `.git/index.lock` behind, the hand-off should include `rm -f .git/index.lock` first.
 - Validation: `python3 outputs/validate.py` (or wherever the script lives in `outputs/`). Checks tag balance for every HTML file, CSS brace balance, and `node --check` on `js/main.js`.
 
 ## File layout
@@ -28,7 +28,7 @@ Never commit raw camera JPGs. Always run them through optimization first.
 
 Sizes used across the site:
 - Album photos: long edge 1920 px, JPEG quality 80, progressive.
-- Cover thumbnails: long edge 1200 px, JPEG quality 82, progressive.
+- Cover thumbnails: long edge 2560 px, JPEG quality 82, progressive. (Homepage cards render at full viewport width, so anything smaller looks soft on retina/4K.)
 - Music studio photos: long edge 1200 px, JPEG quality 82.
 
 The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when running on the Mac. When running inside Cowork's Linux sandbox, `sips` is not available — use the Python (Pillow) snippet below instead, which produces equivalent output. Always strip EXIF orientation via `ImageOps.exif_transpose` so portraits don't rotate sideways.
@@ -36,7 +36,7 @@ The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when r
 ### Adding a new album (full recipe)
 
 1. **Drop the raw photos** in `images/<Source Folder>/` (e.g. `images/Taiwan/`).
-2. **Pick a URL slug** in `lowercase-with-hyphens-and-country`, like the city-comma-country pattern used elsewhere: `taipei-taiwan`, `manila-philippines`, `kyoto-osaka-japan`. The display title uses `City, Country` (with `&middot;` in the subtitle).
+2. **Pick a URL slug** in `lowercase-with-hyphens-and-country`, like the city-comma-country pattern used elsewhere: `taipei-taiwan`, `manila-philippines`, `kyoto-osaka-japan`. The display title uses `City, Country`. (Hong Kong is shorter — slug `hong-kong`, title `Hong Kong` — because the country qualifier is redundant for it.)
 3. **Optimize** into `images/opt/<slug>/` and the cover into `images/opt/covers/<slug>.jpg`. From the sandbox, run:
 
    ```python
@@ -52,7 +52,7 @@ The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when r
        if s < 1: img = img.resize((int(w*s), int(h*s)), Image.LANCZOS)
        img.save(ALBUM / f"{i:02d}.jpg", "JPEG", quality=80, optimize=True, progressive=True)
    img = ImageOps.exif_transpose(Image.open(files[0])).convert("RGB")
-   w, h = img.size; s = 1200/max(w, h) if max(w, h) > 1200 else 1
+   w, h = img.size; s = 2560/max(w, h) if max(w, h) > 2560 else 1
    if s < 1: img = img.resize((int(w*s), int(h*s)), Image.LANCZOS)
    img.save(COVER, "JPEG", quality=82, optimize=True, progressive=True)
    ```
@@ -61,7 +61,7 @@ The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when r
 
 4. **Create `albums/<slug>.html`** by copying any existing album page (e.g. `manila-philippines.html`) and replacing:
    - `<title>` and `<meta name="description">`
-   - The `<h1>` and `.album-subtitle` (use `City &middot; Country`)
+   - The `<h1>` (just the title — there's no longer a separate subtitle line)
    - Every `images/opt/<old-slug>/NN.jpg` path
    - Every `alt` attribute
    - The number of `.album-photo-item` blocks (one per photo, with `data-index` starting at 0)
@@ -81,8 +81,15 @@ The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when r
    Position the card wherever the user wants in the scroll order (first card = leftmost = first thing visitors see).
 
 6. **Validate**: `python3 outputs/validate.py` — expects "All checks passed."
-7. **Commit** with a short subject line, e.g. `"Add Taipei, Taiwan album (13 photos)"`. Note: the sandbox needs `git config user.email/user.name` set per repo before the first commit each session.
-8. **Push from the Mac.**
+7. **Hand off commit + push to the Mac.** Sandbox can't write `.git/` (see Repo basics). Give the user a block like:
+
+   ```
+   cd ~/Desktop/portfolio-website
+   rm -f .git/index.lock
+   git add index.html albums/<slug>.html images/opt/<slug>/ images/opt/covers/<slug>.jpg
+   git commit -m "Add <City, Country> album (N photos)"
+   git push origin main && git push pages main
+   ```
 
 ### Removing or renaming an album
 
@@ -104,4 +111,4 @@ These all use `<body class="has-sidebar">` with the shared `.site-layout > .site
 
 - Don't link `images/<Source Folder>/` paths from HTML (uses raw, full-res files — blows past Pages' 1 GB cap fast).
 - Don't reintroduce "2018–2026" or similar date ranges in sidebars — the user removed them deliberately.
-- Don't `git push` from the sandbox; it will fail. Commit and hand off.
+- Don't try to `git commit` or `git push` from the sandbox; both fail. Do the file work, validate, hand the commands off to the user.

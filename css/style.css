@@ -441,31 +441,36 @@ body.has-sidebar { overflow: hidden; }
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Scroll hint */
+/* Scroll hint — plain text overlay, no pill */
 .scroll-hint {
   position: fixed;
-  bottom: 1.25rem;
-  right: 1.5rem;
+  bottom: 1.75rem;
+  right: 2rem;
   z-index: 20;
-  font-size: 0.66rem;
+  font-size: 0.78rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--text-secondary);
+  letter-spacing: 0.26em;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.85rem;
   pointer-events: none;
   user-select: none;
+  text-shadow: 0 0 12px rgba(241, 236, 227, 0.85), 0 0 4px rgba(241, 236, 227, 0.95);
+  transition: opacity 0.4s ease;
 }
 
 .scroll-hint .arrow {
   display: inline-block;
-  animation: hintPulse 1.8s ease-in-out infinite;
+  font-size: 1.1rem;
+  line-height: 1;
+  animation: hintPulse 1.4s ease-in-out infinite;
 }
 
 @keyframes hintPulse {
-  0%, 100% { transform: translateX(0); opacity: 0.45; }
-  50%      { transform: translateX(6px); opacity: 1; }
+  0%, 100% { transform: translateX(0); opacity: 0.7; }
+  50%      { transform: translateX(12px); opacity: 1; }
 }
 
 /* =============================================
