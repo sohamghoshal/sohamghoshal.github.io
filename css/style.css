@@ -498,8 +498,7 @@ body.has-sidebar { overflow: hidden; }
   line-height: 1.4;
 }
 
-.page-header p,
-.album-page-header .album-subtitle {
+.page-header p {
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
