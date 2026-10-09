@@ -15,7 +15,7 @@ Working notes for this portfolio site. Read this first when making changes.
 
 - `index.html` — homepage, horizontal album gallery. Each album is one `<a class="album-card">` block.
 - `albums/<slug>.html` — one page per album. All built from the same template; the only things that change are the slug, the title, and the photo count.
-- `podcast.html`, `music.html`, `contact.html` — top-level inner pages.
+- `podcast.html`, `music.html` — top-level inner pages. (Contact page was removed in Oct 2026 — do not re-add.)
 - `css/style.css` — one global stylesheet. Mobile breakpoint at 768px (hamburger replaces sidebar).
 - `js/main.js` — nav toggle, lightbox, scroll behaviors.
 - `images/<Source Folder>/` — raw, full-resolution photos straight from the camera. **Do not link these from HTML** — they're too big for Pages.
@@ -96,9 +96,9 @@ The repo has `optimize.sh` (uses macOS `sips`). It is the source of truth when r
 - Remove the card from `index.html`.
 - Optionally delete `albums/<slug>.html`, `images/opt/<slug>/`, and `images/opt/covers/<slug>.jpg` if you want it fully gone. Source `images/<Source Folder>/` stays (it's not served).
 
-## Inner pages (podcast, music, contact)
+## Inner pages (podcast, music)
 
-These all use `<body class="has-sidebar">` with the shared `.site-layout > .site-sidebar + .site-content > main` structure. The sidebar's active link is set by adding `class="active"` to the matching `<a>` inside `nav.sidebar-nav`. If you add a new top-level page, make sure to add the link in both the header `<nav id="main-nav">` and the `nav.sidebar-nav` on every page (`index.html`, all albums, podcast, music, contact).
+These all use `<body class="has-sidebar">` with the shared `.site-layout > .site-sidebar + .site-content > main` structure. The sidebar's active link is set by adding `class="active"` to the matching `<a>` inside `nav.sidebar-nav`. If you add a new top-level page, make sure to add the link in both the header `<nav id="main-nav">` and the `nav.sidebar-nav` on every page (`index.html`, all albums, podcast, music).
 
 ## Style/voice
 
